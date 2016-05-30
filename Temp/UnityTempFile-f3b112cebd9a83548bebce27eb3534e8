@@ -2,13 +2,14 @@
 -target:library
 -nowarn:0169
 -out:Temp/Assembly-CSharp.dll
--r:D:/unity221/Editor/Data/Managed/UnityEngine.dll
+-r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll"
 -r:Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll
--r:D:/unity221/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
--r:D:/unity221/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
+-r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
 -r:Assets/Plugins/LeapCSharp.NET3.5.dll
--r:D:/unity221/Editor/Data/Managed/UnityEditor.dll
--define:UNITY_5_3_1
+-r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll"
+-define:UNITY_5_3_OR_NEWER
+-define:UNITY_5_3_4
 -define:UNITY_5_3
 -define:UNITY_5
 -define:UNITY_64
@@ -80,7 +81,6 @@
 -define:UNITY_EDITOR_64
 -define:UNITY_EDITOR_WIN
 -define:CROSS_PLATFORM_INPUT
-Assets/HandWalker.cs
 Assets/LeapMotion/Scripts/DetectionUtilities/Detector.cs
 Assets/LeapMotion/Scripts/DetectionUtilities/DetectorLogicGate.cs
 Assets/LeapMotion/Scripts/DetectionUtilities/ExtendedFingerDetector.cs
@@ -171,8 +171,9 @@ Assets/Models/SteamVR/Scripts/SteamVR_UpdatePoses.cs
 Assets/Models/SteamVR/Scripts/SteamVR_Utils.cs
 Assets/Scripts/ButtonPress.cs
 Assets/Scripts/Collision.cs
+Assets/Scripts/HandWalker.cs
 Assets/Scripts/NextLevel.cs
 Assets/Scripts/RandomWalkspider.cs
-Assets/straightlinewalker.cs
--r:D:\unity221\Editor\Data\Mono\lib\mono\unity\System.Runtime.Serialization.dll
--r:D:\unity221\Editor\Data\Mono\lib\mono\unity\System.Xml.Linq.dll
+Assets/Scripts/straightlinewalker.cs
+-r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Runtime.Serialization.dll"
+-r:"C:\Program Files\Unity\Editor\Data\Mono\lib\mono\unity\System.Xml.Linq.dll"

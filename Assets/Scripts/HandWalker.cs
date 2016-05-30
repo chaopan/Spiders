@@ -10,6 +10,8 @@ public class HandWalker : MonoBehaviour {
 
     public GameObject spider;
     Controller controller;
+
+    Vector3 palm, elbow;
     // Use this for initialization
     public Vector3 ToVector3(Vector position)
     {
@@ -17,7 +19,9 @@ public class HandWalker : MonoBehaviour {
     }
     void Start() {
         controller = new Controller();
-   
+        spider.transform.SetParent(armL.transform);
+       palm = a1.transform.localPosition; //+ new Vector3(0,.5f,0);
+       elbow = a2.transform.localPosition;// + new Vector3(0, .5f, 0);
     }
 
     bool done = false;
@@ -29,58 +33,25 @@ public class HandWalker : MonoBehaviour {
         {
 
             done = true;
-            spider.transform.SetParent(armL.transform);
-           // spider.transform.position = new Vector3(spider.transform.position.x, spider.transform.position.y +180, spider.transform.position.z);
-            /*
-            Hand hand = frame.Hands[0];
-            Arm arm = hand.Arm;
-            Vector3 v = ToVector3(arm.ElbowPosition);
-
-          //  v = transform.TransformVector(v);
-           
-            Vector3 v1 = ToVector3(arm.WristPosition);
-
-            */
-
-
-
-
-            /*GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            cube.transform.localScale = new Vector3(.4f, .4f, .4f);
-            cube.transform.position = transform.TransformVector(palmL.transform.parent.parent.parent.position) + v1;
-            cube.GetComponent<Renderer>().material.color = Color.red;
-           */
-
-
-
-
-
-
-
-
-            //  StartCoroutine(destroy(cube, (palmL.transform.parent.parent.parent.position + v), (palmL.transform.parent.parent.parent.position + v1)));
-            StartCoroutine(destroy());
+            
+          StartCoroutine(destroy());
             
 
 
         }
     }
+
     IEnumerator destroy() {
-        Vector3 palm = a1.transform.localPosition;
-        Vector3 elbow = a2.transform.localPosition;
         
-       
-       // while (true)
-      // {
             for (float i = 0; i < .5f; i += Time.deltaTime)
             {
                 yield return null;
                 //animateObj(anim, "walk");
                 //walking = true;
-                Quaternion rotation = Quaternion.LookRotation(palm - elbow);
+                Quaternion rotation = Quaternion.LookRotation(palm - elbow, Vector3.down);
                 Debug.Log(rotation.y);
-                spider.transform.rotation = Quaternion.Lerp(transform.rotation, rotation, i / .5f);
-                //this.transform.rotation = Quaternion.Slerp(currentRotation, neededRotation, Time.deltaTime);
+                spider.transform.localRotation = Quaternion.Lerp(spider.transform.localRotation, rotation, i / .5f);
+      
             }
             for (float i = 0; i < 1f; i += Time.deltaTime)
             {
@@ -95,21 +66,18 @@ public class HandWalker : MonoBehaviour {
             for (float i = 0; i < .5f; i += Time.deltaTime)
             {
                 yield return null;
-                Quaternion rotation = Quaternion.LookRotation(elbow - palm);
+                Quaternion rotation = Quaternion.LookRotation(elbow-palm, Vector3.down);
 
-                spider.transform.rotation = Quaternion.Lerp(transform.rotation, rotation, i / .5f);
+                spider.transform.localRotation = Quaternion.Lerp(spider.transform.localRotation, rotation, i / .5f);
 
                 //this.transform.rotation = Quaternion.Slerp(currentRotation, neededRotation, Time.deltaTime);
             }
             for (float i = 0; i < 1f; i += Time.deltaTime)
             {
                 yield return null;
-                //change all transform.localPosition to transform.localPosition
                 spider.transform.localPosition = Vector3.Lerp(palm, elbow, i / 1f);
-                    //new Vector3(Mathf.Lerp(palm.x, elbow.x, i / 1f), Mathf.Lerp(palm.y, elbow.y, i / 1f), Mathf.Lerp(palm.z, elbow.z, i / 1f));
-            }
-      // }
-        //yield return new WaitForSeconds(.1f);
+               }
+
         done = false;
     }
 }

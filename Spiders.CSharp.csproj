@@ -58,6 +58,12 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -72,7 +78,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\HandWalker.cs" />
     <Compile Include="Assets\LeapMotion\Scripts\DetectionUtilities\Detector.cs" />
     <Compile Include="Assets\LeapMotion\Scripts\DetectionUtilities\DetectorLogicGate.cs" />
     <Compile Include="Assets\LeapMotion\Scripts\DetectionUtilities\ExtendedFingerDetector.cs" />
@@ -163,9 +168,10 @@
     <Compile Include="Assets\Models\SteamVR\Scripts\SteamVR_Utils.cs" />
     <Compile Include="Assets\Scripts\ButtonPress.cs" />
     <Compile Include="Assets\Scripts\Collision.cs" />
+    <Compile Include="Assets\Scripts\HandWalker.cs" />
     <Compile Include="Assets\Scripts\NextLevel.cs" />
     <Compile Include="Assets\Scripts\RandomWalkspider.cs" />
-    <Compile Include="Assets\straightlinewalker.cs" />
+    <Compile Include="Assets\Scripts\straightlinewalker.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\LeapMotion\Dependencies.txt" />
