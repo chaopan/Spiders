@@ -45,7 +45,62 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\ButtonPress.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\DetectionUtilities\Detector.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\DetectionUtilities\DetectorLogicGate.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\DetectionUtilities\ExtendedFingerDetector.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\DetectionUtilities\FingerDirectionDetector.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\DetectionUtilities\PalmDirectionDetector.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\DetectionUtilities\PinchDetector.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\DetectionUtilities\ProximityDetector.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\HandFactory.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\HandPool.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\HandProxy.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\HandRepresentation.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Hands\CapsuleHand.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Hands\DebugHand.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Hands\FingerModel.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Hands\HandDrop.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Hands\HandEnableDisable.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Hands\HandFader.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Hands\HandModel.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Hands\HandTransitionBehavior.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Hands\IHandModel.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Hands\RigidFinger.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Hands\RigidHand.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Hands\SkeletalFinger.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Hands\SkeletalHand.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Hands\TestHandFactory.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\LeapDeviceInfo.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\LeapHandController.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\LeapImageRetriever.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\LeapProvider.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\LeapServiceProvider.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Utils\DisconnectionNotice.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Utils\EnableDepthBuffer.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Utils\ExecutionOrder.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Utils\FitHeightToScreen.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Utils\FrameRateControls.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Utils\KeyEnableBehaviors.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Utils\KeyEnableGameObjects.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Utils\LeapUnityExtensions.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Utils\SceneSettings.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Utils\SmoothedFloat.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Utils\SmoothedQuaternion.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Utils\SmoothedVector3.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Utils\StretchToScreen.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\Utils\Utils.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\VR\EyeType.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\VR\LeapVRCameraControl.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\VR\LeapVRTemporalWarping.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\VR\TemporalWarpingStatus.cs" />
+     <Compile Include="Assets\LeapMotion\Scripts\VR\VRHeightOffset.cs" />
+     <Compile Include="Assets\LeapMotionModules\Hands\Examples\Scripts\CenterTransformOnCam.cs" />
+     <Compile Include="Assets\LeapMotionModules\Hands\Examples\Scripts\CycleHandPairs.cs" />
+     <Compile Include="Assets\LeapMotionModules\Hands\Scripts\MinimalHand.cs" />
+     <Compile Include="Assets\LeapMotionModules\Hands\Scripts\PolyFinger.cs" />
+     <Compile Include="Assets\LeapMotionModules\Hands\Scripts\PolyHand.cs" />
+     <Compile Include="Assets\LeapMotionModules\Hands\Scripts\RiggedFinger.cs" />
+     <Compile Include="Assets\LeapMotionModules\Hands\Scripts\RiggedHand.cs" />
      <Compile Include="Assets\Models\SteamVR\Extras\SteamVR_GazeTracker.cs" />
      <Compile Include="Assets\Models\SteamVR\Extras\SteamVR_LaserPointer.cs" />
      <Compile Include="Assets\Models\SteamVR\Extras\SteamVR_Teleporter.cs" />
@@ -78,17 +133,31 @@
      <Compile Include="Assets\Models\SteamVR\Scripts\SteamVR_TrackedObject.cs" />
      <Compile Include="Assets\Models\SteamVR\Scripts\SteamVR_UpdatePoses.cs" />
      <Compile Include="Assets\Models\SteamVR\Scripts\SteamVR_Utils.cs" />
-     <Compile Include="Assets\RandomWalkspider.cs" />
+     <Compile Include="Assets\Scripts\ButtonPress.cs" />
+     <Compile Include="Assets\Scripts\Collision.cs" />
+     <Compile Include="Assets\Scripts\HandWalker.cs" />
+     <Compile Include="Assets\Scripts\NextLevel.cs" />
+     <Compile Include="Assets\Scripts\RandomWalkspider.cs" />
+     <Compile Include="Assets\Scripts\straightlinewalker.cs" />
+     <None Include="Assets\Plugins\donotdelete.txt" />
      <None Include="Assets\Models\SteamVR\Resources\SteamVR_Fade.shader" />
+     <None Include="Assets\LeapMotion\Resources\LeapCG.cginc" />
+     <None Include="Assets\LeapMotion\README_BEFORE_UPDATING.txt" />
      <None Include="Assets\Models\SteamVR\Resources\SteamVR_BlitFlip.shader" />
      <None Include="Assets\Models\SteamVR\Resources\SteamVR_ClearAll.shader" />
+     <None Include="Assets\LeapMotion\readme.txt" />
      <None Include="Assets\Models\SteamVR\Resources\SteamVR_HiddenArea.shader" />
      <None Include="Assets\Models\PB_Spider\readme.txt" />
+     <None Include="Assets\LeapMotion\Dependencies.txt" />
      <None Include="Assets\Models\SteamVR\Resources\SteamVR_Overlay.shader" />
+     <None Include="Assets\LeapMotion\Resources\ThresholdOverlay.shader" />
+     <None Include="Assets\LeapMotion\Resources\PassthroughForeground.shader" />
      <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\LeapMotion\Resources\PassthroughBackground.shader" />
      <None Include="Assets\Models\SteamVR\Resources\SteamVR_Blit.shader" />
      <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
      <None Include="Assets\Models\SteamVR\Resources\SteamVR_SphericalProjection.shader" />
+     <None Include="Assets\LeapMotion\Version.txt" />
      <None Include="Assets\Models\SteamVR\Resources\SteamVR_AlphaOut.shader" />
      <None Include="Assets\Models\SteamVR\readme.txt" />
      <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
@@ -99,6 +168,9 @@
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>D:/unity221/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="LeapCSharp.NET3.5">
+ <HintPath>C:/Users/Nick/Desktop/Spiders/Spiders/Assets/Plugins/LeapCSharp.NET3.5.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
