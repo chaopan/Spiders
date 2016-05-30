@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class Collision : MonoBehaviour {
-    public static bool canCrawlOnArm;
     // Use this for initialization
     void Start () {
 	
@@ -18,10 +17,9 @@ public class Collision : MonoBehaviour {
         
         if (other.tag == "Hand" && isOnArm == false)
         {
-            print(other.tag);
-            canCrawlOnArm = true;
+            MasterController.canCrawlOnArm = true;
             isOnArm = true;
-            //StartCoroutine(HandContact());
         }
     }
+    void OnTriggerExit(Collider other) { }
 }

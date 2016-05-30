@@ -13,13 +13,12 @@ public class RandomWalkspider : MonoBehaviour {
 
     public float speed; //faster = larger
     public float maxPauseTimeLow,maxPauseTimeHigh; //longer is ok
-    public GameObject spiderToLoc;
     //bounding box local positions
     private float box_front = -9f; //x
     private float box_back = -4f;
     private float box_left = 0.5f; //z
     private float box_right = -4.5f;
-    
+    public bool armCrawl;
 	void Start () {
         anim = GetComponent<Animator>();
     }
@@ -30,21 +29,47 @@ public class RandomWalkspider : MonoBehaviour {
     void Update () {
 
         //if the spider isnt currently moving
-        if (walking == false && Collision.canCrawlOnArm == false) {
+        if (walking == false && (MasterController.canCrawlOnArm == false || armCrawl == false)) {
             walking = true;
             StartCoroutine(walkRandomDirection());
         }
 
-
-        if (isOnArm == false && Collision.canCrawlOnArm)
+        if(MasterController.canCrawlOnArm == true) { StopCoroutine(walkRandomDirection()); }
+        if (isOnArm == false && MasterController.canCrawlOnArm)
         {
             
             isOnArm = true;
             print("in here! yay!");
-           // StartCoroutine(HandContact());
+            StopCoroutine(walkRandomDirection());
+           StartCoroutine(lookAtAndWalkToArm());
         }
     }
 
+    IEnumerator lookAtAndWalkToArm() {
+        Vector3 origin = this.transform.position;
+        print("wlaking yay!");
+
+        for(float i = 0; i < 1f; i += Time.deltaTime) {
+            yield return null;
+            //animateObj(anim, "walk");
+            Quaternion rotation = Quaternion.LookRotation(MasterController.elbow.transform.position - this.transform.position);
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, i / 1f);
+            //this.transform.rotation = Quaternion.Slerp(currentRotation, neededRotation, Time.deltaTime);
+        }
+
+        for(float j = 0; j < 1f; j += Time.deltaTime) {
+            yield return null;
+            Vector3.Lerp(origin, MasterController.elbow.transform.position, j / 1f);
+        }
+        yield return new WaitForSeconds(.01f);
+        MasterController.spider.transform.position = MasterController.elbow.transform.position;
+        float dot = Vector3.Dot(Vector3.Normalize(MasterController.spider.transform.position), Vector3.Normalize(MasterController.elbow.transform.position));
+        if(Mathf.Approximately(dot,1f)) {
+            MasterController.spider.transform.SetParent(MasterController.armL.transform);
+        }
+        else { print(Vector3.Dot(Vector3.Normalize(MasterController.spider.transform.position),Vector3.Normalize(MasterController.elbow.transform.position))); }
+        MasterController.isOnArm = true;
+    }
 
     IEnumerator walkRandomDirection() {
         //Vector2 randomXY = Random.insideUnitCircle * rand;
@@ -92,12 +117,8 @@ public class RandomWalkspider : MonoBehaviour {
             yield return null;
             animateObj(anim, "walk");
             
-            //this.transform.LookAt(new Vector3(rand,this.transform.position.y,rand));
-            //this.transform.LookAt(randomPos);
-            //this.transform.rotation = Quaternion.Euler(this.transform.eulerAngles.x, randDir, transform.eulerAngles.z); 
-            //this.transform.position = new Vector3(Mathf.Lerp(originPos.x, rand, i / (.3f * rand)), this.transform.position.y, Mathf.Lerp(originPos.z, rand, i / (.3f * rand)));
             this.transform.localPosition = new Vector3(Mathf.Lerp(originPos.x, randomPos.x, i / time_to_walk), originPos.y, Mathf.Lerp(originPos.z, randomPos.z, i / time_to_walk));
-            // this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+
         }
         walking = false;
     }
@@ -107,32 +128,5 @@ public class RandomWalkspider : MonoBehaviour {
         anim.CrossFade(type, 0f);
     }
 
-     /*   IEnumerator HandContact() {
-        for (float i = 0; i < .5f; i += Time.deltaTime)
-        {
-            yield return null;
-            animateObj(anim, "walk");
-            walking = true;
-            Quaternion rotation = Quaternion.LookRotation(spiderToLoc.transform.position - transform.position);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, i / 2f);
-            //this.transform.rotation = Quaternion.Slerp(currentRotation, neededRotation, Time.deltaTime);
-        }
-        for (float i = 0; i < 1f; i += Time.deltaTime)
-        {
-            yield return null;
-            animateObj(anim, "walk");
-
-            //this.transform.LookAt(new Vector3(rand,this.transform.position.y,rand));
-            //this.transform.LookAt(randomPos);
-            //this.transform.rotation = Quaternion.Euler(this.transform.eulerAngles.x, randDir, transform.eulerAngles.z); 
-            //this.transform.position = new Vector3(Mathf.Lerp(originPos.x, rand, i / (.3f * rand)), this.transform.position.y, Mathf.Lerp(originPos.z, rand, i / (.3f * rand)));
-            this.transform.localPosition = new Vector3(Mathf.Lerp(transform.position.x, spiderToLoc.transform.position.x, i / 1f), 
-                transform.position.y,
-                Mathf.Lerp(transform.position.z, spiderToLoc.transform.position.z, i / 1f));
-            // this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
-        }
-        //isOnArm = false;
-        Collision.canCrawlOnArm = false;
-        yield return null; 
-    }*/
+  
 }

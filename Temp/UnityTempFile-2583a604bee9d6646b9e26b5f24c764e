@@ -137,6 +137,7 @@ Assets/LeapMotionModules/Hands/Scripts/PolyFinger.cs
 Assets/LeapMotionModules/Hands/Scripts/PolyHand.cs
 Assets/LeapMotionModules/Hands/Scripts/RiggedFinger.cs
 Assets/LeapMotionModules/Hands/Scripts/RiggedHand.cs
+Assets/MasterController.cs
 Assets/Models/SteamVR/Extras/SteamVR_GazeTracker.cs
 Assets/Models/SteamVR/Extras/SteamVR_LaserPointer.cs
 Assets/Models/SteamVR/Extras/SteamVR_Teleporter.cs

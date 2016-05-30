@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using System.Collections;
 
 public class straightlinewalker : MonoBehaviour {
@@ -21,7 +21,7 @@ public class straightlinewalker : MonoBehaviour {
     // Update is called once per frame
     bool walking = false;
 	void Update () {
-        if (walking == false && Collision.canCrawlOnArm == false) //how does this work
+        if (walking == false && MasterController.canCrawlOnArm == false) //how does this work
         {
             walking = true;
             StartCoroutine(walkOnArm());
@@ -78,3 +78,4 @@ public class straightlinewalker : MonoBehaviour {
         anim.CrossFade(type, 0f);
     }
 }
+*/
