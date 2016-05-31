@@ -141,6 +141,7 @@
      <Compile Include="Assets\Scripts\RandomWalkspider.cs" />
      <Compile Include="Assets\Scripts\straightlinewalker.cs" />
      <None Include="Assets\Plugins\donotdelete.txt" />
+     <None Include="Assets\plants\dd\AlphaTest-Bumped.shader" />
      <None Include="Assets\Models\SteamVR\Resources\SteamVR_Fade.shader" />
      <None Include="Assets\LeapMotion\Resources\LeapCG.cginc" />
      <None Include="Assets\LeapMotion\README_BEFORE_UPDATING.txt" />
