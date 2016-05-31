@@ -101,6 +101,7 @@
      <Compile Include="Assets\LeapMotionModules\Hands\Scripts\PolyHand.cs" />
      <Compile Include="Assets\LeapMotionModules\Hands\Scripts\RiggedFinger.cs" />
      <Compile Include="Assets\LeapMotionModules\Hands\Scripts\RiggedHand.cs" />
+     <Compile Include="Assets\MasterController.cs" />
      <Compile Include="Assets\Models\SteamVR\Extras\SteamVR_GazeTracker.cs" />
      <Compile Include="Assets\Models\SteamVR\Extras\SteamVR_LaserPointer.cs" />
      <Compile Include="Assets\Models\SteamVR\Extras\SteamVR_Teleporter.cs" />
